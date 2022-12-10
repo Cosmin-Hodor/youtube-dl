@@ -8,7 +8,6 @@ fn main() {
   let url = args.get(1).unwrap_or(&String::new());
   let filename = args.get(2).unwrap_or(&String::new());
 
-
   let result = downloader::download(url);
 
   match result {
