@@ -5,8 +5,15 @@ use std::io::Write;
 
 fn main() {
   let args: Vec<String> = env::args().collect();
-  let url = args.get(1).unwrap_or(&String::new());
-  let filename = args.get(2).unwrap_or(&String::new());
+  let mut url = String::new();
+ 
+  println!("Enter URL:");
+  std::io::stdin().read_line(&mut url).unwrap();
+  url = url.trim().to_string();
+ 
+  let mut filename = String::new();
+  println!("Enter Filename:");
+  std::io::stdin().read_line(&mut filename).unwrap();
 
   let result = downloader::download(url);
 
